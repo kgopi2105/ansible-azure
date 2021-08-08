@@ -1,0 +1,12 @@
+---
+- name: Create AzureRG
+  hosts: 127.0.0.1
+  tasks:
+   - name: Create a resource group
+     azure_rm_resourcegroup:
+      name: myResourceGroup
+      location: westus
+      state: absent
+      tags:
+        testing: testing
+        delete: never

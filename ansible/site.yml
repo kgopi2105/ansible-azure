@@ -1,0 +1,16 @@
+---
+- name: To get the uname of the Azure vm
+  hosts: azure
+  remote_user: vmadmin
+  tasks:
+    - name: to get the uname in vm
+      command: cat /etc/os-release
+      register: os_version
+
+    - name: print the osversion
+      debug:
+        var: os_version
+
+    - name: clear the ssh file
+      command: rm id_rsa
+      delegate_to: 127.0.0.1
